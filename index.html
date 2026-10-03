@@ -7,13 +7,12 @@
 <meta name="description" content="A font file parser in the browser. Reads TrueType and WOFF byte by byte, draws every glyph from its own outlines, applies GPOS kerning, and checks itself against the browser's text renderer." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
 :root{
   --paper:#f6f5f1; --card:#ffffff; --line:#e3e1da; --line2:#cfccc2;
   --ink:#141412; --sub:#6d6a62; --dim:#a19d93;
   --red:#e0452b; --blue:#2f5bd3; --green:#1f8a4c;
-  --d:"Instrument Sans",system-ui,sans-serif; --s:"Instrument Serif",Georgia,serif; --m:"DM Mono",ui-monospace,Menlo,monospace;
+  --d:system-ui,-apple-system,"Segoe UI",sans-serif; --s:Georgia,"Times New Roman",serif; --m:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
 }
 *{box-sizing:border-box}
 html,body{margin:0}
@@ -23,7 +22,7 @@ header h1{font-family:var(--s);font-weight:400;font-size:52px;line-height:.9;mar
 header p{margin:0 0 4px;color:var(--sub);max-width:520px;line-height:1.45}
 header a{margin-left:auto;font-family:var(--m);font-size:12px;color:var(--sub);margin-bottom:4px}
 .bar{display:flex;gap:8px;align-items:center;padding:14px 28px;border-bottom:1px solid var(--line);flex-wrap:wrap;background:var(--card)}
-.bar .lab{font-family:var(--m);font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-right:4px}
+.bar .lab{font-size:13px;color:var(--sub);margin-right:4px}
 .chip{font:500 13px var(--d);background:var(--paper);border:1px solid var(--line);color:var(--ink);border-radius:99px;padding:6px 13px;cursor:pointer}
 .chip:hover{border-color:var(--ink)}
 .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
@@ -33,8 +32,8 @@ main{display:grid;grid-template-columns:290px 1fr 380px;gap:0;min-height:calc(10
 aside,.center,.right{padding:20px 22px}
 aside{border-right:1px solid var(--line)}
 .right{border-left:1px solid var(--line)}
-h2{font-family:var(--m);font-size:10.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--sub);margin:0 0 10px;display:flex;justify-content:space-between}
-h2 em{font-style:normal;color:var(--dim);letter-spacing:.04em;text-transform:none}
+h2{font-size:13px;font-weight:600;color:var(--ink);margin:0 0 10px;display:flex;justify-content:space-between}
+h2 em{font-style:normal;font-weight:400;color:var(--dim);text-transform:none}
 .block+.block{margin-top:24px}
 .fam{font-family:var(--s);font-size:30px;line-height:1.05;margin:0 0 4px}
 .kv{display:grid;grid-template-columns:auto 1fr;gap:5px 12px;font-size:12.5px}
@@ -58,7 +57,7 @@ textarea{width:100%;font:500 14px var(--d);border:1px solid var(--line2);border-
 textarea:focus{border-color:var(--ink)}
 .tester{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin-top:10px;overflow:hidden}
 .tester svg{display:block;width:100%}
-.tester .cap{font-family:var(--m);font-size:10.5px;color:var(--dim);margin:0 0 6px;display:flex;justify-content:space-between}
+.tester .cap{font-size:12px;color:var(--dim);margin:0 0 6px;display:flex;justify-content:space-between}
 .native{font-size:38px;line-height:1.15;white-space:pre-wrap;word-break:break-word;margin:0}
 .checks .c{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-top:1px solid var(--line);gap:10px}
 .checks .c:first-child{border-top:0}
@@ -78,7 +77,7 @@ textarea:focus{border-color:var(--ink)}
 <header>
   <h1>Glyph</h1>
   <p>A font file parser. It reads TrueType and WOFF byte by byte, draws every glyph from the outlines it decoded, and applies the font's own kerning.</p>
-  <a href="https://github.com/bxzex/glyph">source</a>
+  <a href="https://github.com/bxzex/glyph">Source</a>
 </header>
 <div class="bar" id="bar">
   <span class="lab">Font</span>
@@ -132,6 +131,7 @@ textarea:focus{border-color:var(--ink)}
     </div>
   </div>
 </main>
+<footer style="padding:14px 28px 22px;font-size:12px;color:var(--dim)">© 2026 <a href="https://bxzex.com" style="color:var(--sub)">bxzex</a></footer>
 
 <script>
 "use strict";
